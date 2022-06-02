@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { LoginForm } from './LoginForm/LoginForm';
+import App from './App/App';
+import LoginForm from './LoginForm/LoginForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +12,6 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}></Route>
       <Route path="/auth" element={<LoginForm />}></Route>
-      <Route path="/challenge"></Route>
     </Routes>
   </BrowserRouter>
 );
