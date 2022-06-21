@@ -1,7 +1,16 @@
 import './form.css';
-export const Form = ({questions, setUsername, setUserFamily}) => {
-    console.log(setUserFamily)
-   
+export const Form = ({ questions, setData, data }) => {
+
+
+    const updateUsers = (e, tag) => {
+        console.log(tag)
+        setData((data) => ({
+            ...data,
+            [tag]: e.target.value,
+        }))
+        console.log(tag)
+    }
+
     return (
         <div>
             <form>
@@ -9,7 +18,7 @@ export const Form = ({questions, setUsername, setUserFamily}) => {
                     return (
                         <div key={index}>
                             <label> {questions[key].question}
-                                <input className='questions' type={questions[key].tag} onChange={(e) => setUsername(e.target.value)}/>
+                                <input className= {`questions ${String(questions[key].tag)}`} type={questions[key].tag} onChange={(e) => updateUsers(e, questions[key].tag)} />
                             </label>
                         </div>
                     );
@@ -19,3 +28,5 @@ export const Form = ({questions, setUsername, setUserFamily}) => {
         </div>
     )
 }
+
+{/* <input className='questions' type={questions[key].tag} onChange={(e) => setData(e.target.value)}/> */ }
