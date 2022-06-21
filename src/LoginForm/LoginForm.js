@@ -1,18 +1,25 @@
-import './LoginForm.css';
 import { useState } from 'react';
+import {Form} from '../components/Form';
 
 export default function LoginForm() {
+  const [username, setUsername] = useState("David")
+  const [userFamily, setUserFamily] = useState("Dehe")
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
+  const handleForm = {
+    q1: {
+      question: 'nom de létudiant',
+      tag: 'name'
+    },
+    q2: {
+      question: 'prenom de létudiant',
+      tag: 'username'
+    }
+  }
   return (
     <div className="LoginForm">
-      <h1 className="LoginForm__title">Connexion</h1>
-      <form>
-        <input type="text" name="username" placeholder="Pseudo" value={this.state.value} onChange={this.setUsername} />
-        <input type="password" name="password" placeholder="Mot de passe" value={this.state.value} onChange={this.setPassword} />
-      </form>
+      <h1>Connexion</h1>
+      <Form questions={handleForm} setUsername={setUsername}  setUserFamily={setUserFamily}/>
+      <h1>{username}</h1>
     </div>
   );
 }
