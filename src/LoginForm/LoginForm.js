@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {Form} from '../components/Form';
+import { Form } from '../components/Form';
 
 export default function LoginForm() {
   let [data, setData] = useState({
@@ -22,9 +22,7 @@ export default function LoginForm() {
   return (
     <div className="LoginForm">
       <h1>Connexion</h1>
-      <Form questions={handleForm} setData={setData}  data={data}/>
-      <h1>{data.userName}</h1>
-      <h1>{data.familyName}</h1>
+      <Form questions={handleForm} setData={setData} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import './form.css';
-export const Form = ({ questions, setData, data }) => {
+export const Form = ({ questions, setData }) => {
 
 
     const updateUsers = (e, tag) => {
@@ -8,7 +8,6 @@ export const Form = ({ questions, setData, data }) => {
             ...data,
             [tag]: e.target.value,
         }))
-        console.log(tag)
     }
 
     return (
@@ -18,7 +17,7 @@ export const Form = ({ questions, setData, data }) => {
                     return (
                         <div key={index}>
                             <label> {questions[key].question}
-                                <input className= {`questions ${String(questions[key].tag)}`} type={questions[key].tag} onChange={(e) => updateUsers(e, questions[key].tag)} />
+                                <input className={`questions ${String(questions[key].tag)}`} type={questions[key].tag} onChange={(e) => updateUsers(e, questions[key].tag)} />
                             </label>
                         </div>
                     );
