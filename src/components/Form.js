@@ -1,28 +1,35 @@
 import './form.css';
 import { useState } from "react";
 
-export const Form = ({ questions, setData }) => {
+export const Form = () => {
     const [name, setName] = useState("");
-    const [firstName, setMobileNumber] = useState("");
+    const [firstName, setFirstName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     
     let handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          let res = await fetch("http://localhost:5050/register/:prom/:challenge", {
+          let res = await fetch("http://localhost:5050/register/mt4/sgbdr", {
             method: "POST",
+            headers: {
+                'Accept': 'application/json, text/plain, /',
+                'Content-Type': 'application/json'
+              },
             body: JSON.stringify({
-              name: name,
-              email: email,
-              firstName: firstName,
+            "name_student": name,
+            "first_name_student": email,
+            "email_student": firstName,
             }),
+           
           });
+          
           let resJson = await res.json();
+          console.log(resJson);
           if (res.status === 200) {
             setName("");
             setEmail("");
-            setMobileNumber("");
+            setFirstName("");
             setMessage("User created successfully");
           } else {
             setMessage("Some error occured");
@@ -35,6 +42,7 @@ export const Form = ({ questions, setData }) => {
     return (
         <div className="App">
           <form onSubmit={handleSubmit}>
+
             <input
               type="text"
               value={name}
@@ -45,7 +53,7 @@ export const Form = ({ questions, setData }) => {
               type="text"
               value={firstName}
               placeholder="Firstname"
-              onChange={(e) => setMobileNumber(e.target.value)}
+              onChange={(e) => setFirstName(e.target.value)}
             />
             <input
               type="text"
