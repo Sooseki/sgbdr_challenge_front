@@ -4,9 +4,9 @@ export default function Api() {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    fetch(`http://localhost:505/admin/student`)
+    fetch(`http://localhost:5050/register/:prom/:challenge`)
       .then((response) => response.json())
-      .then((actualData) => setData(actualData.rows))
+      .then((actualData) => console.log(actualData))
       .catch((err) => {
         console.log(err.message);
       });
@@ -16,10 +16,10 @@ export default function Api() {
 
   return (
     <div>
-      <p>test</p>
-      {data.map(test => <h2>{test.id_challenge}</h2>)}
+      <p>test</p> 
+      {/* {data.map(test => <h2>{test.id_challenge}</h2>)}
       {data.map(test => <h2>{test.id_student}</h2>)}
-      {data.map(test => <h2>{test.mark_student_challenge}</h2>)}
+      {data.map(test => <h2>{test.mark_student_challenge}</h2>)} */}
     </div>
   )
 
