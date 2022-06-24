@@ -20,8 +20,8 @@ export const Form = () => {
         },
         body: JSON.stringify({
           name_student: name,
-          first_name_student: email,
-          email_student: firstName
+          first_name_student: firstName,
+          email_student: email
         })
       });
 
