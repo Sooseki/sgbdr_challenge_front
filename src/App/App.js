@@ -1,11 +1,12 @@
 import './App.css';
-import Api from '../Api/Api'
+import AdminReview from '../interface/AdminReview'
+import { useState } from 'react';
 
 function App() {
+
   return (
     <div className="App">
-      <p>test</p>
-      <Api />
+      <AdminReview />
     </div>
   );
 }
