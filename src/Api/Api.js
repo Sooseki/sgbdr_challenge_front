@@ -1,35 +1,34 @@
 import { useState, useEffect } from "react";
-export default function Api({ setApiCall, apiCall }) {
+import axios from "axios";
 
-  useEffect(() => {
-    fetch(`http://localhost:5050/admin/student`)
-      .then((response) => response.json())
-      .then((actualData) => setApiCall(actualData.rows))
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
+export const useGetApi = (_url) =>  {
 
+  const [apiResponse, setApiResponse] = useState()
 
+  const getApi = async () => {
+    try {
+      const { data } = await axios.get(_url)
+      setApiResponse(data)
+    } catch (error) {
+      setApiResponse(error)
+    }
+  }
 
-  // return (
-  //   <div>
-  //     <p>test</p>
-  //     <ul>
-  //       {data.map(function (eachElement) {
-  //         return ([
-  //           <ul>
-  //             <li>{eachElement.id_challenge}</li>
-  //             <li>{eachElement.id_student}</li>
-  //             <li>{eachElement.id_student}</li>
-  //             <li>{eachElement.name_student}</li>
-  //             <p>---------</p>
-  //           </ul>
-  //         ]);
-  //       })}
-  //     </ul>
+  return [getApi, apiResponse, setApiResponse]
+} 
 
-  //   </div>
-  // )
+export const usePostApi = (_url, data) =>  {
 
-}
+  const [apiResponse, setApiResponse] = useState()
+
+  const postApi = async () => {
+    try {
+      const { data } = await axios.post(_url, {data})
+      setApiResponse(data)
+    } catch (error) {
+      setApiResponse(error)
+    }
+  }
+
+  return [postApi, apiResponse, setApiResponse]
+} 
