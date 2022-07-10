@@ -8,7 +8,7 @@ import ChallengeTests from './ChallengeTests/ChallengeTests';
 
 const Challenge = () => {
 
-    // const [getChallenge, challenge, setChallenge] = useGetApi("http://localhost:5050/challenge")
+    // const [getChallenge, challenge, setChallenge] = useGetApi("http://localhost:5050//admin/student")
     const [selectedMenu, setSelectedMenu] = useState('login-form');
     const [challenge, setChallenge] = useState({
       id_challenge: 1,
@@ -28,7 +28,7 @@ const Challenge = () => {
     });
 
     useEffect(() => {
-        // getChallenge()
+        getChallenge()
     }, []);
 
     const switchComponentPart = (selectedMenu) => {

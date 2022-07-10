@@ -2,4 +2,44 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.TestsHeader > *:first-child {
+  font-weight: bold;
+}
+
+.challengeTests {
+  max-width: min(90vw, 1000px);
+  margin: auto;
+}
+
+.TestsContent {
+  margin-bottom: 1rem;
+}
+
+.TestsContent > *:first-child {
+  margin-bottom: 0.5rem;
+}
+
+.TestsContent > *:last-child {
+  padding: 1rem;
+  background-color: lightcoral;
+  color: #fff;
+}
+
+.challengeButton {
+  border: 0px;
+  background: lightsteelblue;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.challengeButton:hover {
+  cursor: pointer;
+  background: #000;
+  color: lightsteelblue;
 }
