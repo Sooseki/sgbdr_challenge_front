@@ -4,10 +4,11 @@ import axios from "axios";
 export const useGetApi = (_url) =>  {
 
   const [apiResponse, setApiResponse] = useState()
-
+  console.log('data')
   const getApi = async () => {
     try {
       const { data } = await axios.get(_url)
+      
       setApiResponse(data)
     } catch (error) {
       setApiResponse(error)
