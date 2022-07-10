@@ -1,0 +1,19 @@
+.Red{
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #142850;
+}
+
+.test{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: start;
+    background-color: #27496D;
+    border: 1px solid red;
+    align-items: center;
+    
+}
