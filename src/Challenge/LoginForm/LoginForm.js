@@ -5,6 +5,7 @@ import { Form } from "../../components/Form";
 const LoginForm = () => {
   const [data, setData] = useState({
     name_student: 'David',
+    first_name_student: 'Dehe',
     email_student: 'dehe@dehe'
   })
 
@@ -14,12 +15,16 @@ const LoginForm = () => {
       tag: 'name_student'
     },
     q2: {
+      question: 'prénom de létudiant',
+      tag: 'first_name_student'
+    },
+    q3: {
       question: 'email de létudiant',
       tag: 'email_student'
     }
   }
   
-  const [getStudent] = usePostApi('http://localhost:5050/admin/student')
+  const [getStudent] = usePostApi('http://localhost:5050/auth/student')
 
   const useSubmit = async() => {
     console.log(getStudent)
