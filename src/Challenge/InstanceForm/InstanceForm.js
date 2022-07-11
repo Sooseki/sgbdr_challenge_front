@@ -2,16 +2,20 @@ import { usePostApi } from "../../Api/Api";
 import { useState } from "react";
 import { Form } from "../../components/Form";
 
-const InstanceForm = ({ userId, setSelectedMenu }) => {
+const InstanceForm = ({ userId, setSelectedMenu, setInstanceInfos }) => {
   let [data, setData] = useState({
+    id_student: userId,
+    id_challenge: 1,
+    mark_student_challenge: 0,
     ip_student_instance_student_challenge: "",
+    port_student_instance_student_challenge: 15,
     challenge_user_login_student_challenge: "",
     database_login: "",
     database_password: ""
   });
 
   const [getStudentChallenge] = usePostApi(
-    "http://localhost:5050/admin/student?id=" + userId
+    "http://localhost:5050/admin/student?id="
   );
 
   const useSubmit = async () => {
@@ -27,7 +31,7 @@ const InstanceForm = ({ userId, setSelectedMenu }) => {
     },
     q2: {
       question: "utilisateur VM",
-      tag: "instancechallenge_user_login_student_challengeUserName"
+      tag: "challenge_user_login_student_challenge"
     },
     q3: {
       question: "utilisateur BDD",
