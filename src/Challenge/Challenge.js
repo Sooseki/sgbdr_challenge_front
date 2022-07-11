@@ -8,27 +8,11 @@ import ChallengeTests from './ChallengeTests/ChallengeTests';
 
 const Challenge = () => {
 
-    const [getChallenge, challenge, setChallenge] = useGetApi("http://localhost:5050/admin/student/1")
+    // const [getChallenge, challenge, setChallenge] = useState([() => {}, '', '']);
     const [selectedMenu, setSelectedMenu] = useState('login-form');
-    // const [challenge, setChallenge] = useState({
-    //   id_challenge: 1,
-    //   id_student: 1,
-    //   points: {
-    //     has: 4,
-    //     max: 20
-    //   },
-    //   current: {
-    //     number: 2,
-    //     nb_points: 3,
-    //     label: "Eh ouais ?",
-    //     error: "Wallah c'est pas bon",
-    //     clue: "Wallah trouve la solution"
-    //   },
-    //   passed: 1,
-    // });
 
     useEffect(() => {
-        getChallenge()
+        // getChallenge()
     }, []);
 
     const switchComponentPart = (selectedMenu) => {
@@ -38,7 +22,7 @@ const Challenge = () => {
         case "instance-form":
           return <InstanceForm />
         case "tests": 
-          return <ChallengeTests challenge={challenge} setChallenge={setChallenge}/>
+          return <ChallengeTests />
         default:
           return <LoginForm />
       }
@@ -47,7 +31,7 @@ const Challenge = () => {
     return (
         <div>
           <Header setSelectedMenu={setSelectedMenu} />
-          {challenge && selectedMenu && switchComponentPart(selectedMenu)}
+          {selectedMenu && switchComponentPart(selectedMenu)}
         </div>
     );
 }
