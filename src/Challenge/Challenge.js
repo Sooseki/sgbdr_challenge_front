@@ -8,6 +8,8 @@ import ChallengeTests from "./ChallengeTests/ChallengeTests";
 const Challenge = () => {
   // const [getChallenge, challenge, setChallenge] = useState([() => {}, '', '']);
   const [selectedMenu, setSelectedMenu] = useState("login-form");
+  const [userId, setUserId] = useState();
+  const [instanceInfos, setInstanceInfos] = useState();
 
   useEffect(() => {
     // getChallenge()
@@ -16,9 +18,17 @@ const Challenge = () => {
   const switchComponentPart = selectedMenu => {
     switch (selectedMenu) {
       case "login-form":
-        return <LoginForm setSelectedMenu={setSelectedMenu} />;
+        return (
+          <LoginForm setSelectedMenu={setSelectedMenu} setUserId={setUserId} />
+        );
       case "instance-form":
-        return <InstanceForm />;
+        return (
+          <InstanceForm
+            userId={userId}
+            setSelectedMenu={setSelectedMenu}
+            setInstanceInfos={setInstanceInfos}
+          />
+        );
       case "tests":
         return <ChallengeTests />;
       default:
