@@ -4,6 +4,7 @@ import Header from "./Header/Header";
 import LoginForm from "./LoginForm/LoginForm";
 import InstanceForm from "./InstanceForm/InstanceForm";
 import ChallengeTests from "./ChallengeTests/ChallengeTests";
+import SignInForm from './SignInForm/SignInForm';
 
 const Challenge = () => {
   // const [getChallenge, challenge, setChallenge] = useState([() => {}, '', '']);
@@ -31,6 +32,10 @@ const Challenge = () => {
         );
       case "tests":
         return <ChallengeTests />;
+      case "sign-in-form":
+        return (
+            <SignInForm setSelectedMenu={setSelectedMenu} />
+        )
       default:
         return <LoginForm />;
     }
