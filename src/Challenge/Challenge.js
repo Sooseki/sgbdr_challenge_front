@@ -1,38 +1,36 @@
-
-import { useGetApi } from '../Api/Api'
-import { useState, useEffect } from 'react';
-import Header from './Header/Header';
-import LoginForm from './LoginForm/LoginForm';
-import InstanceForm from './InstanceForm/InstanceForm';
-import ChallengeTests from './ChallengeTests/ChallengeTests';
+import { useGetApi } from "../Api/Api";
+import { useState, useEffect } from "react";
+import Header from "./Header/Header";
+import LoginForm from "./LoginForm/LoginForm";
+import InstanceForm from "./InstanceForm/InstanceForm";
+import ChallengeTests from "./ChallengeTests/ChallengeTests";
 
 const Challenge = () => {
+  // const [getChallenge, challenge, setChallenge] = useState([() => {}, '', '']);
+  const [selectedMenu, setSelectedMenu] = useState("login-form");
 
-    // const [getChallenge, challenge, setChallenge] = useState([() => {}, '', '']);
-    const [selectedMenu, setSelectedMenu] = useState('login-form');
+  useEffect(() => {
+    // getChallenge()
+  }, []);
 
-    useEffect(() => {
-        // getChallenge()
-    }, []);
+  const switchComponentPart = selectedMenu => {
+    switch (selectedMenu) {
+      case "login-form":
+        return <LoginForm setSelectedMenu={setSelectedMenu} />;
+      case "instance-form":
+        return <InstanceForm />;
+      case "tests":
+        return <ChallengeTests />;
+      default:
+        return <LoginForm />;
+    }
+  };
 
-    const switchComponentPart = (selectedMenu) => {
-      switch(selectedMenu){
-        case "login-form":
-          return <LoginForm />
-        case "instance-form":
-          return <InstanceForm />
-        case "tests": 
-          return <ChallengeTests />
-        default:
-          return <LoginForm />
-      }
-    };
-
-    return (
-        <div>
-          <Header setSelectedMenu={setSelectedMenu} />
-          {selectedMenu && switchComponentPart(selectedMenu)}
-        </div>
-    );
-}
-export default Challenge
+  return (
+    <div>
+      <Header setSelectedMenu={setSelectedMenu} />
+      {selectedMenu && switchComponentPart(selectedMenu)}
+    </div>
+  );
+};
+export default Challenge;
