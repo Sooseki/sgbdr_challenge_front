@@ -30,7 +30,8 @@ const Challenge = () => {
           />
         );
       case "tests":
-        return <ChallengeTests />;
+        console.log(instanceInfos)
+        return <ChallengeTests instanceInfos={instanceInfos}/>;
       default:
         return <LoginForm />;
     }
