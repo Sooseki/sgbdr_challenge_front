@@ -9,6 +9,9 @@ import VerifyEmail from './Challenge/VerifyEmail/VerifyEmail';
 import SignUpForm from './Challenge/LoginForm/LoginForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+
+
 root.render(
   <BrowserRouter>
     <Routes>
