@@ -2,7 +2,7 @@ import { usePostApi } from "../../Api/Api";
 import { useState, useEffect } from "react";
 import { Form } from "../../components/Form";
 
-const SignInForm = ({ setSelectedMenu, setUserId }) => {
+const SignInForm = () => {
 	const [data, setData] = useState({
 		email: "dehe@dehe"
 	});
@@ -18,7 +18,8 @@ const SignInForm = ({ setSelectedMenu, setUserId }) => {
 
 	const useSubmit = async () => {
 		const postData = await getStudent(data);
-		setSelectedMenu("login-form");
+		alert("Un mail a été envoyé")
+		// setSelectedMenu("login-form");
 	};
 
 	return (
