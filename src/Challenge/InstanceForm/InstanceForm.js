@@ -1,6 +1,7 @@
 import { usePostApi } from "../../Api/Api";
 import { useState } from "react";
 import { Form } from "../../components/Form";
+import { apiUrl } from "../../helpers";
 
 const InstanceForm = ({ userId, setSelectedMenu, setInstanceInfos }) => {
   let [data, setData] = useState({
@@ -15,7 +16,7 @@ const InstanceForm = ({ userId, setSelectedMenu, setInstanceInfos }) => {
   });
 
   const [getStudentChallenge] = usePostApi(
-    "http://localhost:5050/admin/student?id="
+    apiUrl + "/admin/student?id="
   );
 
   const useSubmit = async () => {

@@ -1,11 +1,12 @@
 import './ChallengeTests.css';
 import { useEffect } from 'react'
 import { useGetApi } from '../../Api/Api'
+import { apiUrl } from '../../helpers';
 
 const ChallengeTests = ({ instanceInfos }) => {
 
   console.log(instanceInfos);
-  const [getChallenge, challenge, setChallenge] = useGetApi("http://localhost:5050/admin/student/" + instanceInfos);
+  const [getChallenge, challenge, setChallenge] = useGetApi(apiUrl + "/admin/student/" + instanceInfos);
   
   useEffect(() => {
     getChallenge()

@@ -1,6 +1,7 @@
 import { usePostApi } from "../../Api/Api";
 import { useState, useEffect } from "react";
 import { Form } from "../../components/Form";
+import { apiUrl } from "../../helpers";
 
 const LoginForm = ({ setSelectedMenu, setUserId }) => {
   const [data, setData] = useState({
@@ -24,7 +25,7 @@ const LoginForm = ({ setSelectedMenu, setUserId }) => {
     }
   };
 
-  const [getStudent] = usePostApi("http://localhost:5050/auth/student");
+  const [getStudent] = usePostApi(apiUrl + "/auth/student");
 
   const useSubmit = async () => {
     const postData = await getStudent(data);
