@@ -1,29 +1,31 @@
 import './ChallengeTests.css';
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useGetApi } from '../../Api/Api'
 
 const ChallengeTests = ({ instanceInfos }) => {
 
-  console.log(instanceInfos);
   const [getChallenge, challenge, setChallenge] = useGetApi("http://localhost:5050/admin/student/" + instanceInfos);
-  
+
+
   useEffect(() => {
     getChallenge()
-  }, [challenge]);
+  }, []);
+  
 
   return (
     <div className="challengeTests">
+      {/* <button className="challengeButton" onClick={() => aaaaaaa()}>Lancer le test</button> */}
       {challenge &&
         <div>
           <div className="TestsHeader">
-            <div>{challenge.current.label}</div>
-            <div>{challenge.points.has} / {challenge.points.max}</div>
+            <div>{challenge[1].name}</div>
+            <div>{challenge[1].points} / 20</div>
           </div>
           <div className="TestsContent">
-            <div>Clue : {challenge.current.clue}</div>
-            <div>Error : {challenge.current.error}</div>
+            <div>Clue : {challenge[1].clue}</div>
+            <div>Error : {challenge[1].error[0]}</div>
           </div>
-          <button className="challengeButton" onClick={() => setChallenge()}>Lancer le test</button>
+          <button className="challengeButton" onClick={() => getChallenge()}>Lancer le test</button>
         </div>
       }
     </div>

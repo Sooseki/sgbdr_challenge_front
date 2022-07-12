@@ -1,0 +1,34 @@
+div {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.test {
+    width: 100%;
+    background-color: rgb(178, 193, 223);
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    height: 4rem;
+    align-items: center;
+    font-size: 1, 4rem;
+    margin: 0 4rem;
+    text-align: center;
+}
+
+div .test:nth-child(2n) {
+    background-color: rgb(221, 197, 239);
+}
+
+.test li {
+    width: 100%;
+}
+
+.title {
+    font-size: 2, 3rem;
+    font-weight: bold;
+}
