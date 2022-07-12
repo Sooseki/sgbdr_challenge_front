@@ -9,7 +9,7 @@ const InstanceForm = ({ userId, setSelectedMenu, setInstanceInfos }) => {
     id_challenge: 2,
     mark_student_challenge: 0,
     ip_student_instance_student_challenge: "",
-    port_student_instance_student_challenge: 15,
+    port_student_instance_student_challenge: userId,
     challenge_user_login_student_challenge: "",
     database_login: "",
     database_password: ""
