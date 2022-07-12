@@ -2,23 +2,6 @@ import { usePostApi } from "../../Api/Api";
 import { useState, useEffect } from "react";
 import { Form } from "../../components/Form";
 
-const queryString = window.location.search;
-const searchParams = new URLSearchParams(queryString);
-
-window.onload = function() {
-  const test =  document.getElementsByClassName("Register");
-	if(test.length > 0) {
-    if (localStorage.token === ""){
-      localStorage.setItem('token', 'temp')
-    }
-    else if (localStorage.token === "temp") {
-      window.location.href="/";
-    } else {
-      console.log("all acess")
-    }
-	}
-}
-
 const SignUpForm = ({ setSelectedMenu, setUserId }) => {
   const [data, setData] = useState({
     name_student: "David",
