@@ -4,22 +4,21 @@ import { Form } from "../../components/Form";
 
 const SignInForm = ({ setSelectedMenu, setUserId }) => {
 	const [data, setData] = useState({
-		email_student: "dehe@dehe"
+		email: "dehe@dehe"
 	});
 
 	const handleForm = {
 		q3: {
 			question: "email de létudiant",
-			tag: "email_student"
+			tag: "email"
 		}
 	};
 
-	const [getStudent] = usePostApi("http://localhost:5050/auth/student");
+	const [getStudent] = usePostApi("http://localhost:5050/auth/email");
 
 	const useSubmit = async () => {
 		const postData = await getStudent(data);
-		setSelectedMenu("instance-form");
-		setUserId(postData.data.id);
+		setSelectedMenu("login-form");
 	};
 
 	return (
