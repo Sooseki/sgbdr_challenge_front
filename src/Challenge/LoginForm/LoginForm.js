@@ -2,7 +2,7 @@ import { usePostApi } from "../../Api/Api";
 import { useState, useEffect } from "react";
 import { Form } from "../../components/Form";
 
-const LoginForm = ({ setSelectedMenu, setUserId }) => {
+const SignUpForm = ({ setSelectedMenu, setUserId }) => {
   const [data, setData] = useState({
     name_student: "David",
     first_name_student: "Dehe",
@@ -38,4 +38,4 @@ const LoginForm = ({ setSelectedMenu, setUserId }) => {
     </div>
   );
 };
-export default LoginForm;
+export default SignUpForm;

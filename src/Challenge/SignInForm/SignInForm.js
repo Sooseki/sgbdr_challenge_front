@@ -18,7 +18,12 @@ const SignInForm = () => {
 
 	const useSubmit = async () => {
 		const postData = await getStudent(data);
+		const header = new Headers();
+		localStorage.setItem('email', data.email);
+		// header.append('email', data.email )
+		console.log(localStorage);
 		alert("Un mail a été envoyé")
+		
 		// setSelectedMenu("login-form");
 	};
 

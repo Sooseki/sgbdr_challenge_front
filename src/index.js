@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App/App';
 import LoginForm from './LoginForm/LoginForm';
 import VerifyEmail from './Challenge/VerifyEmail/VerifyEmail';
-
+import SignUpForm from './Challenge/LoginForm/LoginForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +15,7 @@ root.render(
       <Route path="/" element={<App />}></Route>
       <Route path="/auth" element={<LoginForm />}></Route>
       <Route path="/verify" element={<VerifyEmail />}></Route>
+      <Route path="/register" element={<SignUpForm />}></Route>
     </Routes>
   </BrowserRouter>
 );

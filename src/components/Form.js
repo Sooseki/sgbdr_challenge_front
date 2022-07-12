@@ -2,7 +2,7 @@ import './form.css';
 export const Form = ({ questions, submit, setData }) => {
 
     const updateUsers = (e, tag) => {
-        console.log(tag, ' : ', e.target.value)
+        // console.log(tag, ' : ', e.target.value)
         setData((data) => ({
             ...data,
             [tag]: e.target.value,
