@@ -1,6 +1,7 @@
 import { usePostApi } from "../Api/Api";
 import { useState, useEffect } from "react";
 import { Form } from "../components/Form";
+import { apiUrl } from "../helpers";
 
 const SignInForm = () => {
   const [data, setData] = useState({
@@ -14,7 +15,7 @@ const SignInForm = () => {
     }
   };
 
-  const [getStudent] = usePostApi("http://localhost:5050/auth/email");
+  const [getStudent] = usePostApi(apiUrl + "/auth/email");
 
   const useSubmit = async () => {
     const postData = await getStudent(data);
