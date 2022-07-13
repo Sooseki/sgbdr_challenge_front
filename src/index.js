@@ -7,7 +7,7 @@ import App from "./App/App";
 import LoginForm from "./LoginForm/LoginForm";
 import VerifyEmail from "./Challenge/VerifyEmail/VerifyEmail";
 import SignUpForm from "./Challenge/LoginForm/LoginForm";
-import AdminReview from './AdminReview/AdminReview';
+import AdminReview from "./AdminReview/AdminReview";
 import SignInForm from "./SignInForm/SignInForm";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -15,10 +15,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 window.onload = function () {
   const test = document.getElementsByClassName("Register");
   if (test.length > 0) {
-    if (localStorage.token === "") {
-      localStorage.setItem("token", "temp");
+    if (localStorage.getItem("token") === null) {
+      console.log("ajout du token");
     } else if (localStorage.token === "temp") {
-      window.location.href = "/";
+      window.location.href = "/sign-in";
     } else {
       console.log("all acess");
     }
