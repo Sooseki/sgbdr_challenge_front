@@ -19,17 +19,16 @@ export const useGetApi = (_url) =>  {
 } 
 
 export const usePostApi = (_url, data) =>  {
-
-  const [apiResponse, setApiResponse] = useState()
-
-  const postApi = async () => {
+  
+  const postApi = async (data) => {
     try {
-      const { data } = await axios.post(_url, {data})
-      setApiResponse(data)
+      // console.log(data)
+      const postedData = await axios.post(_url, data)
+      return postedData
     } catch (error) {
-      setApiResponse(error)
+      return false
     }
   }
 
-  return [postApi, apiResponse, setApiResponse]
+  return [postApi]
 } 

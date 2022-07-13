@@ -1,12 +1,13 @@
 import './App.css';
-import AdminReview from '../interface/AdminReview'
+import Challenge from '../Challenge/Challenge'
 import { useState } from 'react';
 
 function App() {
 
   return (
     <div className="App">
-      <AdminReview />
+      <Challenge />
+      {/* <AdminReview /> */}
     </div>
   );
 }

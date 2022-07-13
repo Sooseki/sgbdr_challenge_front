@@ -1,0 +1,16 @@
+.ChallengeHeader {
+  max-width: min(90vw, 1000px);
+  margin: auto;
+}
+
+.ChallengeHeader ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: #F4F4F4;
+}
+
+.ChallengeHeader li {
+  cursor: pointer;
+}
