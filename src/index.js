@@ -7,17 +7,18 @@ import App from "./App/App";
 import LoginForm from "./LoginForm/LoginForm";
 import VerifyEmail from "./Challenge/VerifyEmail/VerifyEmail";
 import SignUpForm from "./Challenge/LoginForm/LoginForm";
-import AdminReview from './AdminReview/AdminReview';
+import AdminReview from "./AdminReview/AdminReview";
+import SignInForm from "./SignInForm/SignInForm";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 window.onload = function () {
   const test = document.getElementsByClassName("Register");
   if (test.length > 0) {
-    if (localStorage.token === "") {
+    if (localStorage.getItem("token") === null) {
       localStorage.setItem("token", "temp");
     } else if (localStorage.token === "temp") {
-      window.location.href = "/";
+      window.location.href = "/sign-in";
     } else {
       console.log("all acess");
     }
@@ -32,6 +33,7 @@ root.render(
       <Route path="/admin" element={<AdminReview />}></Route>
       <Route path="/verify" element={<VerifyEmail />}></Route>
       <Route path="/register" element={<SignUpForm />}></Route>
+      <Route path="/sign-in" element={<SignInForm />}></Route>
     </Routes>
   </BrowserRouter>
 );

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Form } from "../../components/Form";
 import { apiUrl } from "../../helpers";
 
-const SignUpForm = ({ setSelectedMenu, setUserId }) => {
+const SignUpForm = () => {
   const [data, setData] = useState({
     name_student: "David",
     first_name_student: "Dehe",
@@ -29,8 +29,9 @@ const SignUpForm = ({ setSelectedMenu, setUserId }) => {
 
   const useSubmit = async () => {
     const postData = await getStudent(data);
-    setSelectedMenu("instance-form");
-    setUserId(postData.data.id);
+    // setSelectedMenu("instance-form");
+    // setUserId(postData.data.id);
+    localStorage.setItem("UserId", postData.data.id);
   };
 
   return (
