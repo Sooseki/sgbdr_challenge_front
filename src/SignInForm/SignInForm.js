@@ -21,7 +21,6 @@ const SignInForm = () => {
     const header = new Headers();
     localStorage.setItem("email", data.email);
     // header.append('email', data.email )
-    console.log(localStorage);
     alert("Un mail a été envoyé");
 
     // setSelectedMenu("login-form");

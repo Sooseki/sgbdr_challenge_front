@@ -20,7 +20,6 @@ export const usePostApi = (_url, data) =>  {
   
   const postApi = async (data) => {
     try {
-      // console.log(data)
       const postedData = await axios.post(_url, data)
       return postedData
     } catch (error) {

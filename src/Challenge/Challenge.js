@@ -5,13 +5,13 @@ import SignUpForm from "./LoginForm/LoginForm";
 import InstanceForm from "./InstanceForm/InstanceForm";
 import ChallengeTests from "./ChallengeTests/ChallengeTests";
 
-
 const Challenge = () => {
   // const [getChallenge, challenge, setChallenge] = useState([() => {}, '', '']);
   const [selectedMenu, setSelectedMenu] = useState("sign-in-form");
-  const [userId, setUserId] = useState(localStorage.getItem("UserId"));
+  // const [userId, setUserId] = useState(localStorage.getItem("UserId"));
   const [instanceInfos, setInstanceInfos] = useState();
 
+  const userId = localStorage.getItem("UserId");
   useEffect(() => {
     // getChallenge()
   }, []);
@@ -34,7 +34,13 @@ const Challenge = () => {
           />
         );
       default:
-        return <InstanceForm />;
+        return (
+          <InstanceForm
+            userId={userId}
+            setSelectedMenu={setSelectedMenu}
+            setInstanceInfos={setInstanceInfos}
+          />
+        );
     }
   };
 

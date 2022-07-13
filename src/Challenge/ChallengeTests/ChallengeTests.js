@@ -10,7 +10,6 @@ const ChallengeTests = ({ instanceInfos, setSelectedMenu }) => {
     getChallenge()
   }, []);
 
-  console.log(challenge)
   return (
     <div className="challengeTests">
       {/* <button className="challengeButton" onClick={() => aaaaaaa()}>Lancer le test</button> */}

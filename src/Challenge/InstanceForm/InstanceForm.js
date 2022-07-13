@@ -5,11 +5,11 @@ import { Form } from "../../components/Form";
 const InstanceForm = ({ userId, setSelectedMenu, setInstanceInfos }) => {
   console.log(userId);
   let [data, setData] = useState({
-    id_student: userId,
+    id_student: localStorage.getItem("UserId"),
     id_challenge: 2,
     mark_student_challenge: 0,
     ip_student_instance_student_challenge: "",
-    port_student_instance_student_challenge: userId,
+    port_student_instance_student_challenge: localStorage.getItem("UserId"),
     challenge_user_login_student_challenge: "",
     database_login: "",
     database_password: ""
