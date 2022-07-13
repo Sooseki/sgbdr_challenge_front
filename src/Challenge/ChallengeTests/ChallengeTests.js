@@ -1,32 +1,34 @@
 import './ChallengeTests.css';
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useGetApi } from '../../Api/Api'
 import { apiUrl } from '../../helpers';
 
-const ChallengeTests = ({ instanceInfos }) => {
+const ChallengeTests = ({ instanceInfos, setSelectedMenu }) => {
 
-  console.log(instanceInfos);
   const [getChallenge, challenge, setChallenge] = useGetApi(apiUrl + "/admin/student/" + instanceInfos);
   
   useEffect(() => {
     getChallenge()
-  }, [challenge]);
+  }, []);
 
+  console.log(challenge)
   return (
     <div className="challengeTests">
-      {challenge &&
+      {/* <button className="challengeButton" onClick={() => aaaaaaa()}>Lancer le test</button> */}
+
+      {challenge ? challenge[1] && !challenge[1].code ? 
         <div>
           <div className="TestsHeader">
-            <div>{challenge.current.label}</div>
-            <div>{challenge.points.has} / {challenge.points.max}</div>
+            <div>{challenge[1].name}</div>
+            <div>{challenge[1].points} / 20</div>
           </div>
           <div className="TestsContent">
-            <div>Clue : {challenge.current.clue}</div>
-            <div>Error : {challenge.current.error}</div>
+            <div>Clue : {challenge[1].clue}</div>
+            <div>Error : {challenge[1].error[0]}</div>
           </div>
-          <button className="challengeButton" onClick={() => setChallenge()}>Lancer le test</button>
+          <button className="challengeButton" onClick={() => getChallenge()}>Lancer le test</button>
         </div>
-      }
+      : setSelectedMenu('instance-form') : ''}
     </div>
   );
 }

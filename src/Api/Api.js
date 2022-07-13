@@ -4,7 +4,6 @@ import axios from "axios";
 export const useGetApi = (_url) =>  {
 
   const [apiResponse, setApiResponse] = useState()
-
   const getApi = async () => {
     try {
       const { data } = await axios.get(_url)
@@ -14,14 +13,14 @@ export const useGetApi = (_url) =>  {
     }
   }
 
-  return [getApi, apiResponse, setApiResponse]
+  return [getApi, apiResponse, setApiResponse, ]
 } 
 
 export const usePostApi = (_url, data) =>  {
   
   const postApi = async (data) => {
     try {
-      console.log(data)
+      // console.log(data)
       const postedData = await axios.post(_url, data)
       return postedData
     } catch (error) {

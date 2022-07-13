@@ -1,13 +1,14 @@
 import { useGetApi } from "../Api/Api";
 import { useState, useEffect } from "react";
 import Header from "./Header/Header";
-import LoginForm from "./LoginForm/LoginForm";
+import SignUpForm from "./LoginForm/LoginForm";
 import InstanceForm from "./InstanceForm/InstanceForm";
 import ChallengeTests from "./ChallengeTests/ChallengeTests";
+import SignInForm from './SignInForm/SignInForm';
 
 const Challenge = () => {
   // const [getChallenge, challenge, setChallenge] = useState([() => {}, '', '']);
-  const [selectedMenu, setSelectedMenu] = useState("login-form");
+  const [selectedMenu, setSelectedMenu] = useState("sign-in-form");
   const [userId, setUserId] = useState();
   const [instanceInfos, setInstanceInfos] = useState();
 
@@ -17,9 +18,9 @@ const Challenge = () => {
 
   const switchComponentPart = selectedMenu => {
     switch (selectedMenu) {
-      case "login-form":
+      case "sign-up-form":
         return (
-          <LoginForm setSelectedMenu={setSelectedMenu} setUserId={setUserId} />
+          <SignUpForm setSelectedMenu={setSelectedMenu} setUserId={setUserId} />
         );
       case "instance-form":
         return (
@@ -30,10 +31,9 @@ const Challenge = () => {
           />
         );
       case "tests":
-        console.log(instanceInfos)
-        return <ChallengeTests instanceInfos={instanceInfos}/>;
+        return <ChallengeTests instanceInfos={instanceInfos} setSelectedMenu={setSelectedMenu}/>;
       default:
-        return <LoginForm />;
+        return <SignInForm />;
     }
   };
 
