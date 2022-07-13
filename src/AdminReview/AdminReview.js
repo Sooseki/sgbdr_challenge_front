@@ -6,7 +6,7 @@ import "./AdminReview.css"
 
 const AdminReview = () => {
 
-    const [getStudent, students, setStudents] = useGetApi("http://localhost:5050/admin/student")
+    const [getStudent, students, setStudents] = useGetApi(apiUrl + "/admin/student")
 
     useEffect(() => {
         getStudent()
