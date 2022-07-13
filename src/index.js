@@ -16,7 +16,7 @@ window.onload = function () {
   const test = document.getElementsByClassName("Register");
   if (test.length > 0) {
     if (localStorage.getItem("token") === null) {
-      console.log("ajout du token");
+      localStorage.setItem("token", "temp");
     } else if (localStorage.token === "temp") {
       window.location.href = "/sign-in";
     } else {

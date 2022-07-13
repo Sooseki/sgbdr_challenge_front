@@ -4,15 +4,12 @@ import Header from "./Header/Header";
 import SignUpForm from "./LoginForm/LoginForm";
 import InstanceForm from "./InstanceForm/InstanceForm";
 import ChallengeTests from "./ChallengeTests/ChallengeTests";
-import SignInForm from './../SignInForm/SignInForm';
-
-
 
 
 const Challenge = () => {
   // const [getChallenge, challenge, setChallenge] = useState([() => {}, '', '']);
   const [selectedMenu, setSelectedMenu] = useState("sign-in-form");
-  const [userId, setUserId] = useState(localStorage.getItem('UserId'));
+  const [userId, setUserId] = useState(localStorage.getItem("UserId"));
   const [instanceInfos, setInstanceInfos] = useState();
 
   useEffect(() => {
@@ -21,10 +18,6 @@ const Challenge = () => {
 
   const switchComponentPart = selectedMenu => {
     switch (selectedMenu) {
-      case "sign-up-form":
-        return (
-          <SignUpForm setSelectedMenu={setSelectedMenu} setUserId={setUserId} />
-        );
       case "instance-form":
         return (
           <InstanceForm
@@ -34,9 +27,14 @@ const Challenge = () => {
           />
         );
       case "tests":
-        return <ChallengeTests instanceInfos={instanceInfos} setSelectedMenu={setSelectedMenu}/>;
+        return (
+          <ChallengeTests
+            instanceInfos={instanceInfos}
+            setSelectedMenu={setSelectedMenu}
+          />
+        );
       default:
-        return <SignUpForm />;
+        return <InstanceForm />;
     }
   };
 
