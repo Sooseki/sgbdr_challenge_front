@@ -32,6 +32,7 @@ const SignUpForm = () => {
     // setSelectedMenu("instance-form");
     // setUserId(postData.data.id);
     localStorage.setItem("UserId", postData.data.id);
+    window.location.href = "/";
   };
 
   return (
