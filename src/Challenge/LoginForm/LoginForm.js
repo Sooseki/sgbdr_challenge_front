@@ -30,7 +30,7 @@ const SignUpForm = () => {
     const postData = await getStudent(data);
     // setSelectedMenu("instance-form");
     // setUserId(postData.data.id);
-    localStorage("UserId" , postData.data.id)
+    localStorage.setItem("UserId", postData.data.id);
   };
 
   return (
