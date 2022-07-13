@@ -2,20 +2,20 @@ import './ChallengeTests.css';
 import { useEffect, useState } from 'react'
 import { useGetApi } from '../../Api/Api'
 
-const ChallengeTests = ({ instanceInfos }) => {
+const ChallengeTests = ({ instanceInfos, setSelectedMenu }) => {
 
   const [getChallenge, challenge, setChallenge] = useGetApi("http://localhost:5050/admin/student/" + instanceInfos);
-
 
   useEffect(() => {
     getChallenge()
   }, []);
-  
 
+  console.log(challenge)
   return (
     <div className="challengeTests">
       {/* <button className="challengeButton" onClick={() => aaaaaaa()}>Lancer le test</button> */}
-      {challenge &&
+
+      {challenge ? challenge[1] && !challenge[1].code ? 
         <div>
           <div className="TestsHeader">
             <div>{challenge[1].name}</div>
@@ -27,7 +27,7 @@ const ChallengeTests = ({ instanceInfos }) => {
           </div>
           <button className="challengeButton" onClick={() => getChallenge()}>Lancer le test</button>
         </div>
-      }
+      : setSelectedMenu('instance-form') : ''}
     </div>
   );
 }

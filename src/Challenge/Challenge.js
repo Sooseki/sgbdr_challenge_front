@@ -30,8 +30,7 @@ const Challenge = () => {
           />
         );
       case "tests":
-        console.log(instanceInfos)
-        return <ChallengeTests instanceInfos={instanceInfos}/>;
+        return <ChallengeTests instanceInfos={instanceInfos} setSelectedMenu={setSelectedMenu}/>;
       default:
         return <LoginForm />;
     }
