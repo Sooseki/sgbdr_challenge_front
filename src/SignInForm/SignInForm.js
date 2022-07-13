@@ -1,6 +1,6 @@
-import { usePostApi } from "../../Api/Api";
+import { usePostApi } from "../Api/Api";
 import { useState, useEffect } from "react";
-import { Form } from "../../components/Form";
+import { Form } from "../components/Form";
 
 
 const SignInForm = () => {

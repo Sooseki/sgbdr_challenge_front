@@ -8,6 +8,7 @@ import LoginForm from "./LoginForm/LoginForm";
 import VerifyEmail from "./Challenge/VerifyEmail/VerifyEmail";
 import SignUpForm from "./Challenge/LoginForm/LoginForm";
 import AdminReview from './AdminReview/AdminReview';
+import SignInForm from "./SignInForm/SignInForm";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -32,6 +33,7 @@ root.render(
       <Route path="/admin" element={<AdminReview />}></Route>
       <Route path="/verify" element={<VerifyEmail />}></Route>
       <Route path="/register" element={<SignUpForm />}></Route>
+      <Route path="/sign-in" element={<SignInForm />}></Route>
     </Routes>
   </BrowserRouter>
 );

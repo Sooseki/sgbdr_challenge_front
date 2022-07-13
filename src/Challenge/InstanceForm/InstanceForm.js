@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Form } from "../../components/Form";
 
 const InstanceForm = ({ userId, setSelectedMenu, setInstanceInfos }) => {
+  console.log(userId);
   let [data, setData] = useState({
     id_student: userId,
     id_challenge: 2,

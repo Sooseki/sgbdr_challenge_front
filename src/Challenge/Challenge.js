@@ -4,12 +4,15 @@ import Header from "./Header/Header";
 import SignUpForm from "./LoginForm/LoginForm";
 import InstanceForm from "./InstanceForm/InstanceForm";
 import ChallengeTests from "./ChallengeTests/ChallengeTests";
-import SignInForm from './SignInForm/SignInForm';
+import SignInForm from './../SignInForm/SignInForm';
+
+
+
 
 const Challenge = () => {
   // const [getChallenge, challenge, setChallenge] = useState([() => {}, '', '']);
   const [selectedMenu, setSelectedMenu] = useState("sign-in-form");
-  const [userId, setUserId] = useState();
+  const [userId, setUserId] = useState(localStorage.getItem('UserId'));
   const [instanceInfos, setInstanceInfos] = useState();
 
   useEffect(() => {
@@ -33,7 +36,7 @@ const Challenge = () => {
       case "tests":
         return <ChallengeTests instanceInfos={instanceInfos} setSelectedMenu={setSelectedMenu}/>;
       default:
-        return <SignInForm />;
+        return <SignUpForm />;
     }
   };
 
